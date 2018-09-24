@@ -20,8 +20,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final int accessTokenValiditySeconds = 10000;
     private final int refreshTokenValiditySeconds = 30000;
 
-    @Value("${security.oauth2.resource.id}")
-    private String resourceId;
+    //@Value("${security.oauth2.resource.id}")
+    //private String resourceId;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -59,7 +59,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .authorizedGrantTypes("client_credentials", "password", "refresh_token")
                 .authorities("ROLE_TRUSTED_CLIENT")
                 .scopes("read", "write")
-                .resourceIds(resourceId)
+                //.resourceIds(resourceId)
                 .accessTokenValiditySeconds(accessTokenValiditySeconds)
                 .refreshTokenValiditySeconds(refreshTokenValiditySeconds)
                 .secret("{noop}secret");
